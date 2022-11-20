@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link type="text/css" rel="stylesheet" href="../css/login.css">
+    <title>Controlle de Acesso</title>
+</head>
+<body>
+<div th:if="${param.error}">
+    Senha ou Usuário inválido
+</div>
+<div th:if="${param.logout}">
+    Você está desconectado
+</div>
+
+
+<form class="form" th:action="@{/login}" method="post">
+    <div class="card">
+        <div class="card-top">
+            <img class="imagem" src="../img/user.png" alt="">
+            <h2 class="title">Começar login</h2>
+            <p>Iniciar Cadastro da Copa</p>
+        </div>
+        <div class="card-group">
+            <label>Usuário</label>
+            <input type=type="text" name="Usuário"/>
+        </div>
+    </div>
+
+</form>
+</body>
+</html>
