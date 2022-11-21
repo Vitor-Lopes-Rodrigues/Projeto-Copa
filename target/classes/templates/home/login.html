@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link type="text/css" rel="stylesheet" href="../css/login.css">
+    <link type="text/css" rel="stylesheet" href="../../css/login.css">
     <title>Controlle de Acesso</title>
 </head>
 <body>
@@ -18,13 +18,23 @@
 <form class="form" th:action="@{/login}" method="post">
     <div class="card">
         <div class="card-top">
-            <img class="imagem" src="../img/user.png" alt="">
+            <img class="imagem" src="../../img/brasilpersonagem.jpg" alt="">
             <h2 class="title">Começar login</h2>
             <p>Iniciar Cadastro da Copa</p>
         </div>
         <div class="card-group">
             <label>Usuário</label>
-            <input type=type="text" name="Usuário"/>
+            <input type=type="text" name="Usuário" alt="Coloque o usuário"/>
+        </div>
+        <div class="card-group">
+            <label>Senha</label>
+            <input type=type="text" name="Senha" alt="Coloque a senha"/>
+        </div>
+        <div class="card-group">
+            <label><input type="checkbox"> Exibir senha </label>
+        </div>
+        <div class="card-group">
+            <button type="Acessar"></button>
         </div>
     </div>
 
