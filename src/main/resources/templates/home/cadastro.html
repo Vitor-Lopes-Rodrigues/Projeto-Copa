@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Cadastro</title>
-  <link type="text/css" rel="stylesheet" href="../../css/login.css">
+  <link type="text/css" rel="stylesheet" href="../../css/cadastro.css">
   <title>Cadastro</title>
 </head>
 <body>
 <form class="form" th:action="@{/login}" method="post">
   <div class="card">
     <div class="card-top">
-      <img class="imagem" src="../../img/brasilpersonagem.jpg" alt="">
-      <h2 class="title">Começar login</h2>
+      <img id="imagemcopa" class="imagem" src="../../img/mascotecopa.jpg" alt="">
+      <h2 class="title">Começar Cadastro</h2>
       <p>Insira com os dados solicitados</p>
     </div>
     <div class="card-group">
@@ -22,13 +22,11 @@
       <label>Senha</label>
       <input type=type="text" name="Senha" alt="Coloque a senha"/>
     </div>
-    <div class="card-group">
-      <label class="switch">
-        <span class ="">Admin</span>
-      </label>
+    <div class="checkbox">
+        <input type="checkbox"><span class ="">Admin</span>
     </div>
     <div class="card-group">
-      <button type="Acessar">Cadastrar</button>
+      <button type="Cadastrar">Cadastrar</button>
     </div>
   </div>
 
