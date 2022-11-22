@@ -10,12 +10,10 @@ import java.util.List;
 
 @Entity
 @Table(name="usuario")
-public class Usuario implements UserDetails, Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class Usuario implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String senha;
@@ -24,7 +22,7 @@ public class Usuario implements UserDetails, Serializable {
     @JoinTable(
             name = "usuarios_roles",
             joinColumns = @JoinColumn(
-                    name = "usuario_id", referencedColumnName = "login"),
+                    name = "usuario_id", referencedColumnName = "nome"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "nomeRole"))
     private List<Role> roles;
