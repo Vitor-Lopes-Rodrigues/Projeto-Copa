@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,200;1,500&display=swap');
 
 body{
-    background-image: url("../img/copa.jpg");
+    background-image: url("../img/catar22.jpg");
 
-    margin: 0;
+    margin: 60px;
 
 }
-.imagemCopa{
-    overflow: hidden;
+#imagemcopa{
+    width: 250px;
 }
 .form{
     width: 400px;
@@ -35,6 +35,7 @@ body{
     width: 100%;
     height: 30px;
     padding: 5px;
+    font-family: "Segoe UI Semibold";
 }
 .switch {
     display: flex;
@@ -43,13 +44,13 @@ body{
     cursor: pointer;
 }
 .switch .switch-text{
-    padding-right:0.3rem;
+    padding-right:0.3rem ;
     font-size: 1.2rem;
 }
 .switch .switch-wrapper{
     display: inline-block;
     width: 60px;
-    height: 34px;
+    height: px;
     position: relative;
 }
 .switch .switch-wrapper .switch-button{
@@ -62,15 +63,13 @@ body{
     justify-content: space-between;
     align-items: center;
     border-radius: 40px;
-    background-color: #477569;
+    background-color: yellow;
 }
-
 .switch .switch-wrapper input{
     opacity: 0;
     width: 0;
-    height: 0;
-}
 
+}
 .switch .switch-wrapper .switch-button::before{
     content: "";
     width: 26px;
@@ -82,16 +81,16 @@ body{
     transition:4s all ease;
     background-color: blue;
 }
-
 .switch .switch-wrapper input:checked + switch-button{
-    background-color: green;
+    background-color: red;
 }
 .switch .switch-wrapper input:checked + switch-button::before{
-    transform: translateX(26px);
+    transform: translate(26px);
 }
 .card-group > button{
-    background-image: linear-gradient(to left, green, yellow);
+    background-image: linear-gradient(to left, #800055, red);
     width: 100%;
+    height: 50px;
     border-radius: 30px;
     padding: 15px;
     color: black;
@@ -99,7 +98,7 @@ body{
     outline: 0;
 }
 .btn button:hover{
-    background-image: linear-gradient(to left, green, yellowgreen);
+    background-image: linear-gradient(to left, #800055, red);
 }
 .imagem{
     border-radius: 10px;
@@ -110,5 +109,6 @@ body{
     font-weight: bold;
 
 }
+
 
 
