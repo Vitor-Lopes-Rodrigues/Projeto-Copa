@@ -42,6 +42,10 @@ body{
     align-items: center;
     cursor: pointer;
 }
+.switch .switch-text{
+    padding-right:0.3rem ;
+    font-size: 1.2rem;
+}
 .switch .switch-wrapper{
     display: inline-block;
     width: 60px;
@@ -64,6 +68,23 @@ body{
     opacity: 0;
     width: 0;
 
+}
+.switch .switch-wrapper .switch-button::before{
+    content: "";
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+    border-radius: 50%;
+    transition:4s all ease;
+    background-color: blue;
+}
+.switch .switch-wrapper input:checked + switch-button{
+    background-color: red;
+}
+.switch .switch-wrapper input:checked + switch-button::before{
+    transform: translate(26px);
 }
 .card-group > button{
     background-image: linear-gradient(to left, green, yellow);
