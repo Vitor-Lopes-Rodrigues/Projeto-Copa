@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link type="text/css" rel="stylesheet" href="../../css/login.css">
+    <link href="../../css/login.css" rel="stylesheet" type="text/css">
     <title>Controlle de Acesso</title>
 </head>
 <body>
@@ -30,17 +30,19 @@
             <label>Senha</label>
             <input type=type="text" name="Senha" alt="Coloque a senha"/>
         </div>
-        <div class="card-group">
+
+        <div class="switch" >
             <label class="switch">
-                <span class ="switch-text">Exibir senha</span>
-                <div class = "switch-wrapper">
-                    <input type="checkbox" />
+                <span class="switch-text">Mostrar Senha</span>
+                <div class="switch-wrapper">
+                    <input type="checkbox" name="switch"/>
                     <span class="switch-button"></span>
                 </div>
             </label>
         </div>
-        <div class="card-group">
-            <button type="Acessar"></button>
+
+        <div class="card-group btn">
+            <button type="submit">Acessar</button>
         </div>
     </div>
 

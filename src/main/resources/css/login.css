@@ -36,20 +36,26 @@ body{
     height: 30px;
     padding: 5px;
 }
+.container{
+    width: 250px;
+    margin: 0 auto;
+    padding-top: 10%;
+    font-family: "Segoe MDL2 Assets";
+}
 .switch {
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 }
-.switch .switch-text{
-    padding-right:0.3rem ;
+.switch .switch-text {
+    padding-right: 0.3rem;
     font-size: 1.2rem;
 }
-.switch .switch-wrapper{
+.switch .switch-wrapper {
     display: inline-block;
     width: 60px;
-    height: px;
+    height: 34px;
     position: relative;
 }
 .switch .switch-wrapper .switch-button{
@@ -62,13 +68,14 @@ body{
     justify-content: space-between;
     align-items: center;
     border-radius: 40px;
-    background-color: yellow;
+    background-color: blue;
 }
 .switch .switch-wrapper input{
     opacity: 0;
     width: 0;
-
+    height: 0;
 }
+
 .switch .switch-wrapper .switch-button::before{
     content: "";
     width: 26px;
@@ -77,14 +84,14 @@ body{
     left: 4px;
     bottom: 4px;
     border-radius: 50%;
-    transition:4s all ease;
-    background-color: blue;
+    transition: .4s all ease;
+    background-color: aliceblue;
 }
-.switch .switch-wrapper input:checked + switch-button{
-    background-color: red;
+.switch .switch-wrapper input:checked + .switch-button{
+    background-color: yellow;
 }
-.switch .switch-wrapper input:checked + switch-button::before{
-    transform: translate(26px);
+.switch .switch-wrapper input:checked + .switch-button::before{
+    transform: translateX(26px);
 }
 .card-group > button{
     background-image: linear-gradient(to left, green, yellow);
@@ -94,6 +101,7 @@ body{
     color: black;
     border: 0px;
     outline: 0;
+    font-family: -apple-system;
 }
 .btn button:hover{
     background-image: linear-gradient(to left, green, yellowgreen);

@@ -43,13 +43,13 @@ body{
     cursor: pointer;
 }
 .switch .switch-text{
-    padding-right:0.3rem ;
+    padding-right:0.3rem;
     font-size: 1.2rem;
 }
 .switch .switch-wrapper{
     display: inline-block;
     width: 60px;
-    height: px;
+    height: 34px;
     position: relative;
 }
 .switch .switch-wrapper .switch-button{
@@ -62,13 +62,15 @@ body{
     justify-content: space-between;
     align-items: center;
     border-radius: 40px;
-    background-color: yellow;
+    background-color: #477569;
 }
+
 .switch .switch-wrapper input{
     opacity: 0;
     width: 0;
-
+    height: 0;
 }
+
 .switch .switch-wrapper .switch-button::before{
     content: "";
     width: 26px;
@@ -80,10 +82,13 @@ body{
     transition:4s all ease;
     background-color: blue;
 }
+
 .switch .switch-wrapper input:checked + switch-button{
-    background-color: red;
+    background-color: green;
 }
-.switch .switch-wrapper input:checked + switch-button
+.switch .switch-wrapper input:checked + switch-button::before{
+    transform: translateX(26px);
+}
 .card-group > button{
     background-image: linear-gradient(to left, green, yellow);
     width: 100%;
