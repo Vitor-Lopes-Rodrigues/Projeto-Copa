@@ -20,8 +20,7 @@ public class WebConfigSecurity extends WebSecurityConfigurerAdapter {
     private ImplementsUserDetailService userDetailsService;
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-
+    protected void configure(HttpSecurity http) throws Exception{
         http.csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/").permitAll()
                 .antMatchers(HttpMethod.GET, "/teste").hasRole("ADMIN")
@@ -32,8 +31,7 @@ public class WebConfigSecurity extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        //super.configure(auth);
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(userDetailsService)
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
