@@ -1,10 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body>
 
+<body>
+<div class="container">
+    <div class="header">
+        <span>Cadastro de Usuários</span>
+        <button type="button"></i></button>
+        <a href="home/cadastro.html"><button type="button" id="new" >Incluir</button></a>
+    </div>
+
+    <div class="divTable">
+        <table>
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Função</th>
+                <th class="acao">Editar</th>
+                <th class="acao">Excluir</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal-container">
+        <div class="modal">
+            <form>
+                <label for="m-nome">Nome</label>
+                <input id="m-nome" type="text" required />
+
+                <label for="m-funcao">Função</label>
+                <input id="m-funcao" type="text" required />
+            </form>
+        </div>
+    </div>
+
+</div>
 </body>
+
 </html>

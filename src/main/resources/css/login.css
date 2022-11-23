@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,200;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 body{
     background-image: url("../img/copa.jpg");
@@ -27,6 +27,7 @@ body{
 .card-group > label{
     width: 100%;
     color:rgb(75,75,75);
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .card-group > input{
@@ -40,7 +41,7 @@ body{
     width: 250px;
     margin: 0 auto;
     padding-top: 10%;
-    font-family: "Segoe MDL2 Assets";
+    font-family: 'Josefin Sans', sans-serif;
 }
 .switch {
     display: flex;
@@ -101,7 +102,7 @@ body{
     color: black;
     border: 0px;
     outline: 0;
-    font-family: -apple-system;
+    font-family: 'Josefin Sans', sans-serif;
 }
 .btn button:hover{
     background-image: linear-gradient(to left, green, yellowgreen);
