@@ -50,7 +50,6 @@ body{
 .switch .switch-wrapper{
     display: inline-block;
     width: 60px;
-    height: px;
     position: relative;
 }
 .switch .switch-wrapper .switch-button{

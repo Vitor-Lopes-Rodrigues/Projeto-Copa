@@ -123,3 +123,37 @@ footer {
 .btn-topo:hover {
     background: rgba(157, 12, 53, 1);
 }
+
+.button_time{
+    text-align: center;
+    border-radius: 10px;
+    justify-content: space-between;
+
+}
+
+.container_button{
+
+}
+#gerarTime{
+    border-radius: 10px;
+    width: 15vw;
+    height: 3vw;
+    font-size: 1vw;
+    background-image: linear-gradient(to left, #800055, red);
+}
+#cadastrarTime{
+    border-radius: 10px;
+    width: 15vw;
+    height: 3vw;
+    background-image: linear-gradient(to left, red,#800055 );
+    font-size: 1vw;
+}
+/*
+
+#cadastrarJogador{
+    border-radius: 10px;
+    width: 10vw;
+    background-image: linear-gradient(to left, #800055, red);
+}
+ */
+
