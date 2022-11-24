@@ -1,24 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 body{
-    background-image: url("../img/copa.jpg");
-
+    background-image: url("../img/copaopacity.jpeg");
     margin: 0;
 
 }
 .imagemCopa{
     overflow: hidden;
 }
+
 .form{
     width: 400px;
     margin: auto;
     padding-top: 45px;
 }
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end:0px;
+    font-weight: bold;
+    font-family: 'Josefin Sans', sans-serif;
+}
 .card{
     box-shadow: 1px 1px 5px #cecece;
-    background-color: ghostwhite;
+    background-color: limegreen;
     padding: 30px;
-    border-radius: 5px;
+    border-radius: 30px;
+
 
 }
 .card-top{
@@ -26,7 +36,8 @@ body{
 }
 .card-group > label{
     width: 100%;
-    color:rgb(75,75,75);
+    color:rgb(0,0,0);
+    font-weight: bold;
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -103,9 +114,25 @@ body{
     border: 0px;
     outline: 0;
     font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
 }
+.card-group2 > button{
+    background-image: linear-gradient(to left, #1BCCDE, blue);
+    width: 100%;
+    border-radius: 30px;
+    padding: 15px;
+    color: black;
+    border: 0px;
+    outline: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+}
+
 .btn button:hover{
-    background-image: linear-gradient(to left, green, yellowgreen);
+    background-image: linear-gradient(to left, yellow, green);
+}
+.btn2 button:hover{
+    background-image: linear-gradient(to left, blue, #1BCCDE);
 }
 .imagem{
     border-radius: 10px;
@@ -114,6 +141,7 @@ body{
 .title{
     color: black;
     font-weight: bold;
+    font-family: 'Josefin Sans', sans-serif;
 
 }
 
