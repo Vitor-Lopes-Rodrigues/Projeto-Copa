@@ -11,10 +11,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AndRequestMatcher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 @Configuration
 @EnableWebSecurity
-public class WebConfigSecurity extends WebSecurityConfigurerAdapter {
+public class
+WebConfigSecurity extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private ImplementsUserDetailService userDetailsService;
@@ -22,11 +24,14 @@ public class WebConfigSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.csrf().disable().authorizeRequests()
+                .antMatchers("/resources/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/").permitAll()
-                .antMatchers(HttpMethod.GET, "/teste").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/login").permitAll()
+                .antMatchers(HttpMethod.GET, "/teste").authenticated()
+                .antMatchers(HttpMethod.GET, "/grupo/**").authenticated()
                 .antMatchers(HttpMethod.GET, "/admin").hasRole("ADMIN")
                 .anyRequest().authenticated()
-                .and().formLogin().permitAll()
+                .and().formLogin().loginPage("/login").permitAll()
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
     }
 

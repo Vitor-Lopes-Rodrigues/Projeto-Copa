@@ -15,7 +15,7 @@ public class Time implements Serializable {
     @ManyToOne
     @JoinColumn(name = "grupo_id", nullable=false)
     private Grupo grupo;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "time_id")
     private List<Jogador> jogadores;
 

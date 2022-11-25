@@ -11,7 +11,7 @@ public class Grupo {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "grupo_id")
     private List<Time> times;
 
