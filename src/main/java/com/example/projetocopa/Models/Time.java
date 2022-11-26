@@ -12,6 +12,8 @@ public class Time implements Serializable {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     private String nome;
+
+    private String imagem;
     @ManyToOne
     @JoinColumn(name = "grupo_id", nullable=false)
     private Grupo grupo;
@@ -20,9 +22,10 @@ public class Time implements Serializable {
     private List<Jogador> jogadores;
 
 
-    public Time(String nome, Grupo grupo) {
+    public Time(String nome, Grupo grupo, String imagem) {
         this.nome = nome;
         this.grupo = grupo;
+        this.imagem = imagem;
     }
 
     public Time() {}
@@ -58,4 +61,13 @@ public class Time implements Serializable {
     public void setJogadores(List<Jogador> jogadores) {
         this.jogadores = jogadores;
     }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
 }
