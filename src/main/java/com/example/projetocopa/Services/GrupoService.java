@@ -13,6 +13,10 @@ public class GrupoService {
     @Autowired
     GrupoRepository grupoRepository;
 
+    public List<Grupo> buscarGrupos(){
+        return (List<Grupo>) grupoRepository.findAll();
+    }
+
     public void gerarGrupos(){
         List<Grupo> grupos = (List<Grupo>) grupoRepository.findAll();
         
