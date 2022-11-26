@@ -23,12 +23,12 @@ WebConfigSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/resources/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/").permitAll()
-                .antMatchers(HttpMethod.GET, "/usuario/teste").permitAll()
+                .antMatchers(HttpMethod.GET, "/**/teste").permitAll()
                 .antMatchers(HttpMethod.GET, "/login").permitAll()
                 .antMatchers(HttpMethod.GET, "/teste").authenticated()
                 .antMatchers(HttpMethod.GET, "/grupo/**").authenticated()
                 .antMatchers(HttpMethod.GET, "/admin").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/usuario/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login").permitAll()
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
