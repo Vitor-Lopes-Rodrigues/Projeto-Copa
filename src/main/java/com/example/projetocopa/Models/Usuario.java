@@ -17,6 +17,13 @@ public class Usuario implements UserDetails {
 
     private String senha;
 
+    public Usuario() {}
+
+    public Usuario(String login, String senha) {
+        this.login = login;
+        this.senha = senha;
+    }
+
     @ManyToMany
     @JoinTable(
             name = "usuarios_roles",
