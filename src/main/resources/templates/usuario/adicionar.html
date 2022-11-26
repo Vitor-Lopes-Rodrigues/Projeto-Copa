@@ -1,10 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Adicionar usuário</title>
+    <title>Cadastro</title>
+    <link href="css/groups.css" rel="stylesheet" type="text/css">
+    <title>Cadastro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,200;1,500&display=swap');
+
+        body{
+            background-image: url("https://i0.wp.com/portalamirt.com.br/wp-content/uploads/2022/11/catar_cup_22.png?fit=1920%2C1080&ssl=1");
+
+            margin: 60px;
+
+        }
+        #imagemcopa{
+            width: 250px;
+        }
+        .form{
+            width: 400px;
+            margin: auto;
+            padding-top: 45px;
+        }
+        .card{
+            box-shadow: 1px 1px 5px #cecece;
+            background-color: ghostwhite;
+            padding: 30px;
+            border-radius: 5px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: bold;
+
+        }
+        .card-top{
+            text-align: center;
+        }
+        .card-group > label{
+            width: 100%;
+            color:rgb(0,0,0);
+        }
+
+        .card-group > input{
+            border-radius: 10px;
+            outline: 0;
+            width: 100%;
+            height: 30px;
+            padding: 5px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: bold;
+        }
+        .switch {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .switch .switch-text{
+            padding-right:0.3rem ;
+            font-size: 1.2rem;
+        }
+        .switch .switch-wrapper{
+            display: inline-block;
+            width: 60px;
+            position: relative;
+        }
+        .switch .switch-wrapper .switch-button{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 40px;
+            background-color: yellow;
+        }
+        .switch .switch-wrapper input{
+            opacity: 0;
+            width: 0;
+
+        }
+        .switch .switch-wrapper .switch-button::before{
+            content: "";
+            width: 26px;
+            height: 26px;
+            position: absolute;
+            left: 4px;
+            bottom: 4px;
+            border-radius: 50%;
+            transition:4s all ease;
+            background-color: blue;
+        }
+        .switch .switch-wrapper input:checked + switch-button{
+            background-color: red;
+        }
+        .switch .switch-wrapper input:checked + switch-button::before{
+            transform: translate(26px);
+        }
+        .card-group > button{
+            background-image: linear-gradient(to left, #800055, red);
+            width: 100%;
+            height: 50px;
+            border-radius: 30px;
+            padding: 15px;
+            color: black;
+            border: 0px;
+            outline: 0;
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: bold;
+            transition: 250ms linear;
+        }
+        .btn button:hover{
+            background-image: linear-gradient(to right, #800055, red);
+            transform: scale(1.1);
+        }
+        .imagem{
+            border-radius: 10px;
+            width: 10vw;
+        }
+        .title{
+            color: black;
+            font-weight: bold;
+
+        }
+    </style>
 </head>
 <body>
+<form class="form" th:action="@{/login}" method="post">
+    <div class="card">
+        <div class="card-top">
+            <img id="imagemcopa" class="imagem" src="https://s2.glbimg.com/EIhBsr1HfP0Jhrjr3Pevt_OTmYU=/0x0:1600x900/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2022/B/6/B3nXAkQMiEqwvlr77hlg/whatsapp-image-2022-04-01-at-13.35.35.jpeg" alt="">
+            <h2 class="title">Cadastrar novo usuário</h2>
+            <p>Insira com os dados solicitados</p>
+        </div>
+        <div class="card-group">
+            <label>Usuário</label>
+            <input type=type="text" name="username" id="username" alt="Coloque o usuário"/>
+        </div>
+        <div class="card-group">
+            <label>Senha</label>
+            <input type=type="text" name="password" id="password"  alt="Coloque a senha"/>
+        </div>
 
+        <div class="checkbox">
+            <input type="checkbox"><span class ="span">Admin</span>
+        </div>
+        <br>
+        <div class="card-group">
+            <button  type="Cadastrar">Cadastrar</button>
+        </div>
+    </div>
+
+</form>
 </body>
 </html>
