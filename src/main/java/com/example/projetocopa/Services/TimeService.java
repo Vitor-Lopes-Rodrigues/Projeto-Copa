@@ -18,6 +18,10 @@ public class TimeService {
     @Autowired
     GrupoRepository grupoRepository;
 
+    public Time buscarPorId(Long id){
+        return timeRepository.findFirstById(id);
+    }
+
     public List<Time> buscarTimes(){
         return (List<Time>) timeRepository.findAll();
     }

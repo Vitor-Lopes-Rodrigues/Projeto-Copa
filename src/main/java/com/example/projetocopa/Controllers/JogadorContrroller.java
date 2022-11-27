@@ -25,14 +25,6 @@ public class JogadorContrroller {
     @Autowired
     TimeRepository timeRepository;
 
-    @RequestMapping(value="/", method= RequestMethod.GET)
-    public String index(Model model){
-        Long timeId = Long.parseLong((String) Objects.requireNonNull(model.getAttribute("timeId")));
-        model.addAttribute("jogadores", jogadorService.buscarJogadoresPorTime(timeId));
-        return "time/index";
-    }
-
-
     @RequestMapping(value="/adicionar", method= RequestMethod.GET)
     public String adicionar(Model model){
         Long timeId = Long.parseLong((String) Objects.requireNonNull(model.getAttribute("timeId")));
@@ -61,12 +53,4 @@ public class JogadorContrroller {
         }
     }
 
-    @RequestMapping(value="/remover/{id}", method= RequestMethod.GET)
-    public String remover(@PathVariable Long id, Model model){
-        jogadorService.deletar(id);
-        model.addAttribute("success", "Success!");
-        Long timeId = Long.parseLong((String) Objects.requireNonNull(model.getAttribute("timeId")));
-        model.addAttribute("jogadores", jogadorService.buscarJogadoresPorTime(timeId));
-        return "time/index";
-    }
 }
