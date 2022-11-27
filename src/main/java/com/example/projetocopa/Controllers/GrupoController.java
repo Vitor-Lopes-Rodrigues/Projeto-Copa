@@ -32,7 +32,7 @@ public class GrupoController {
         return "grupo/index";
     }
 
-    @RequestMapping(value="/gerar", method= RequestMethod.GET)
+    @RequestMapping(value="/zerar", method= RequestMethod.GET)
     public String apagarGrupos(Model model){
         grupoService.zerarGrupos();
         model.addAttribute("grupos", grupoService.buscarGrupos());
