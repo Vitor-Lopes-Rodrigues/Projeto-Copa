@@ -181,7 +181,8 @@
 
     <div class="container_button">
         <div class="button_time">
-            <button type="button" value="Click me" onclick="" id="gerarTime">Gerar Times</button>
+            <a  th:if="${grupos.size()}" th:href="@{/grupo/zerar}">Zerar</a>
+            <a th:href="@{/grupo/gerar}" type="button" value="Click me" onclick="" id="gerarTime">Gerar Grupos</a>
             <!-- <button type="button"  value="Click me" onclick id="cadastrarTime">Cadastrar Times</button> -->
             <!-- <button type="button"  value="Click me" onclick id="cadastrarJogador">Cadastrar Jogadores</button> -->
         </div>
@@ -190,26 +191,21 @@
     <!-- preenchida pelo js  -->
     <section class="listas"></section>
 
-    <!-- modelo de listaDoGrupo
-    <div class="modelo">
-        <section class="listaDoGrupo">
-            <h3 class="tituloDoGrupo">Grupo</h3>
-            <ol class="listaDeSelecoes">
-                <li><img class='bandeirap' src='../img/bandeiras/escudo_default.png' alt='bandeira' />
-                    Nome da Seleção 1</li>
-                <li><img class='bandeirap' src='../img/bandeiras/escudo_default.png' alt='bandeira' />
-                    Nome da Seleção 2</li>
-                <li><img class='bandeirap' src='../img/bandeiras/escudo_default.png' alt='bandeira' />
-                    Nome da Seleção 3</li>
-                <li><img class='bandeirap' src='../img/bandeiras/escudo_default.png' alt='bandeira' />
-                    Nome da Seleção 4</li>
-            </ol>
-        </section>
-        /modelo de listaDeGrupos -->
-
-    <div class="inferiordireita">
-        <a class="btn btn-topo" href="#topo">&UpArrow;</a>
+    <div id="div-grupos">
+        <div class="grupo" th:each="grupo : ${grupos}">
+            <p th:text="${grupo.getNome()}"> </p>
+            <span  th:if="${grupo.getTimes() != null} " t>
+                        <a th:if="${grupo.getTimes().size()< 4} " th:href="@{/time/adicionar/{grupoId}(grupoId=${grupo.getId()})}">Adicionar time</a>
+            </span>
+            <div>
+                <div th:each="time: ${grupo.getTimes()}">
+                    <p th:text="${time.getNome()}"></p>
+                </div>
+            </div>
+        </div>
     </div>
+
+
 </main>
 </body>
 </html>

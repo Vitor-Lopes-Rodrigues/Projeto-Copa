@@ -26,14 +26,14 @@ public class GrupoController {
     }
 
     @RequestMapping(value="/gerar", method= RequestMethod.GET)
-    public String gerarGrupos(Model model){
+    public String gerar(Model model){
         grupoService.gerarGrupos();
         model.addAttribute("grupos", grupoService.buscarGrupos());
         return "grupo/index";
     }
 
     @RequestMapping(value="/zerar", method= RequestMethod.GET)
-    public String apagarGrupos(Model model){
+    public String zerar(Model model){
         grupoService.zerarGrupos();
         model.addAttribute("grupos", grupoService.buscarGrupos());
         return "grupo/index";
@@ -41,7 +41,7 @@ public class GrupoController {
 
 
     @RequestMapping(value="/removerTime/{id}", method= RequestMethod.GET)
-    public String remover(@PathVariable Long id, Model model){
+    public String removerTime(@PathVariable Long id, Model model){
         timeService.deletar(id);
         model.addAttribute("success", "Success!");
         model.addAttribute("grupos", grupoService.buscarGrupos());

@@ -1,6 +1,7 @@
 package com.example.projetocopa.Services;
 
 import com.example.projetocopa.Models.Grupo;
+import com.example.projetocopa.Models.Time;
 import com.example.projetocopa.repositories.GrupoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,12 @@ public class GrupoService {
 
     @Autowired
     GrupoRepository grupoRepository;
+    @Autowired
+    TimeService timeService;
+
+    public Grupo buscarGrupoPorId(Long id){
+        return grupoRepository.findFirstById(id);
+    }
 
     public List<Grupo> buscarGrupos(){
         return (List<Grupo>) grupoRepository.findAll();
@@ -31,6 +38,9 @@ public class GrupoService {
     }
     
     public void zerarGrupos(){
+        for (Time time : timeService.buscarTimes()){
+            timeService.deletar(time.getId());
+        }
         grupoRepository.deleteAll();
     }
 }

@@ -2,6 +2,7 @@ package com.example.projetocopa.Controllers;
 
 import com.example.projetocopa.Models.Time;
 import com.example.projetocopa.Models.Usuario;
+import com.example.projetocopa.Services.GrupoService;
 import com.example.projetocopa.Services.JogadorService;
 import com.example.projetocopa.Services.TimeService;
 import com.example.projetocopa.Services.UsuarioService;
@@ -27,6 +28,8 @@ public class TimeController {
 
     @Autowired
     JogadorService jogadorService;
+    @Autowired
+    GrupoService grupoService;
 
     @RequestMapping(value="/time/{id}", method= RequestMethod.GET)
     public String index(Model model, @PathVariable Long id){
@@ -35,13 +38,15 @@ public class TimeController {
     }
 
 
-    @RequestMapping(value="/adicionar", method= RequestMethod.GET)
-    public String adicionar(Model model){
-        model.addAttribute("time", new Time());
+    @RequestMapping(value="/adicionar/{grupoId}", method= RequestMethod.GET)
+    public String adicionar(Long grupoId,Model model){
+        Time time = new Time();
+        time.setGrupo(grupoService.buscarGrupoPorId(grupoId));
+        model.addAttribute("time", time);
         return "time/adicionar";
     }
 
-    @RequestMapping(value="/adicionar", method= RequestMethod.POST)
+    @RequestMapping(value="/adicionar{grupoId}", method= RequestMethod.POST)
     public String adicionar(Time time, Model model){
         try {
             Long grupoId = Long.parseLong((String) Objects.requireNonNull(model.getAttribute("grupoId")));

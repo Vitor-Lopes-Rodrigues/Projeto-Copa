@@ -1,6 +1,7 @@
 package com.example.projetocopa.Services;
 
 import com.example.projetocopa.Models.Grupo;
+import com.example.projetocopa.Models.Jogador;
 import com.example.projetocopa.Models.Time;
 import com.example.projetocopa.repositories.GrupoRepository;
 import com.example.projetocopa.repositories.TimeRepository;
@@ -17,6 +18,8 @@ public class TimeService {
     TimeRepository timeRepository;
     @Autowired
     GrupoRepository grupoRepository;
+    @Autowired
+    JogadorService jogadorService;
 
     public Time buscarPorId(Long id){
         return timeRepository.findFirstById(id);
@@ -33,6 +36,9 @@ public class TimeService {
     }
 
     public void deletar(Long id){
+        for (Jogador jogador : timeRepository.findFirstById(id).getJogadores()){
+            jogadorService.deletar(jogador.getId());
+        }
         timeRepository.deleteById(id);
     }
 }
