@@ -1,6 +1,7 @@
 package com.example.projetocopa.Controllers;
 
 import com.example.projetocopa.Models.Jogador;
+import com.example.projetocopa.Models.Posicao;
 import com.example.projetocopa.Models.Time;
 import com.example.projetocopa.Services.JogadorService;
 import com.example.projetocopa.Services.TimeService;
@@ -25,31 +26,27 @@ public class JogadorContrroller {
     @Autowired
     TimeRepository timeRepository;
 
-    @RequestMapping(value="/adicionar", method= RequestMethod.GET)
-    public String adicionar(Model model){
-        Long timeId = Long.parseLong((String) Objects.requireNonNull(model.getAttribute("timeId")));
+    @RequestMapping(value="/adicionar/{timeId}", method= RequestMethod.GET)
+    public String adicionar(@PathVariable Long timeId, Model model){
         Jogador jogador = new Jogador();
-        jogador.setTime(timeRepository.findFirstById(timeId));
         model.addAttribute("jogador", jogador);
-        return "time/adicionar";
+        model.addAttribute("posicoes", Posicao.values());
+
+        return "jogador/adicionar";
     }
 
-    @RequestMapping(value="/adicionar", method= RequestMethod.POST)
-    public String adicionar(Jogador jogador, Model model){
+    @RequestMapping(value="/adicionar/{timeId}", method= RequestMethod.POST)
+    public String adicionar(@PathVariable Long timeId, Jogador jogador, Model model){
         try {
-            jogadorService.adicionar(jogador, jogador.getTime().getId());
+            jogadorService.adicionar(jogador, timeId);
             model.addAttribute("success", "Sucess!");
-            model.addAttribute("timeId", jogador.getTime().getId());
-            return "time/index";
+            model.addAttribute("timeId", timeId);
+            return "redirect:/time/"+timeId;
         } catch(Exception e) {
-            Pattern compile = Pattern.compile("message\":\"(.*)\",");
-            Matcher m = compile.matcher(e.getMessage());
-            m.find();
-            model.addAttribute("error", m.group(1));
+            model.addAttribute("error", e.getMessage());
             model.addAttribute("jogador", jogador);
-            return "time/adicionar";
-        } finally {
-            model.addAttribute("jogadores", jogadorService.buscarJogadoresPorTime(jogador.getTime().getId()));
+            e.printStackTrace();
+            return "redirect:/jogador/adicionar/"+timeId;
         }
     }
 

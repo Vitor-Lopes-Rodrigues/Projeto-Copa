@@ -26,8 +26,10 @@ public class JogadorService {
 
     public void adicionar(Jogador jogador, Long timeId){
         Time time = timeRepository.findFirstById(timeId);
-        if (time.getJogadores().size() <11)
+        if (time.getJogadores().size() <11) {
+            jogador.setTime(time);
             jogadorRepository.save(jogador);
+        }
     }
 
     public void deletar(Long id){

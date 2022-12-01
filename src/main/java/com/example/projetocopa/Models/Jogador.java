@@ -11,6 +11,7 @@ public class Jogador {
     private Long id;
     private String nome;
     private int idade;
+    @Enumerated(EnumType.STRING)
     private Posicao posicao;
     @ManyToOne
     @JoinColumn(name = "time_id", nullable=false)

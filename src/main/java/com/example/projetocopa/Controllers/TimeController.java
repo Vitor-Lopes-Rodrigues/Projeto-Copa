@@ -32,7 +32,7 @@ public class TimeController {
 
     @RequestMapping(value="/time/{id}", method= RequestMethod.GET)
     public String index(Model model, @PathVariable Long id){
-        model.addAttribute("jogadores", timeService.buscarPorId(id).getJogadores());
+        model.addAttribute("time", timeService.buscarPorId(id));
         return "time/index";
     }
 

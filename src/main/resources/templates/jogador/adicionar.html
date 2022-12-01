@@ -5,6 +5,24 @@
     <title>Adicionar jogadores</title>
 </head>
 <body>
-
+    <section>
+        <div>
+            <h2>Adicionar Jogador</h2>
+            <span th:if="${error}" ><p th:text="${error}"></p></span>
+            <form th:object="${jogador}" method="post" enctype="multipart/form-data">
+                <p>Nome: <input type="text" th:field="*{nome}" /></p>
+                <p>Idade: <input type="number" th:field="*{idade}" /></p>
+                <p>Posicao:
+                    <select th:field="*{posicao}" >
+                        <option th:each="posicao : ${posicoes}"
+                                th:text="${posicao}"
+                                th:value="${posicao}">
+                        </option>
+                    </select>
+                </p>
+                <p><input type="submit" value="Adicionar    " /></p>
+            </form>
+        </div>
+    </section>
 </body>
 </html>
