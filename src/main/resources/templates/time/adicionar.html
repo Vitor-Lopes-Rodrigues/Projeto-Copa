@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar time</title>
+</head>
+<body>
+    <section>
+        <div>
+            <h2>Adicionar Time</h2>
+            <span th:if="${error}" ><p th:text="${error}"></p></span>
+            <form th:object="${time}" method="post" enctype="multipart/form-data">
+                <p>Nome: <input type="text" th:field="*{nome}" /></p>
+                <p><input type="file" name="fotoTime" accept="image/png, image/jpeg" /></p>
+                <p>Imagem: <input type="text" th:field="*{imagem}" /></p>
+                <p><input type="submit" value="Adicionar    " /></p>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
