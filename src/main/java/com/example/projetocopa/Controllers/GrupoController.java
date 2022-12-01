@@ -28,15 +28,13 @@ public class GrupoController {
     @RequestMapping(value="/gerar", method= RequestMethod.GET)
     public String gerar(Model model){
         grupoService.gerarGrupos();
-        model.addAttribute("grupos", grupoService.buscarGrupos());
-        return "grupo/index";
+        return "redirect:/grupo/";
     }
 
     @RequestMapping(value="/zerar", method= RequestMethod.GET)
     public String zerar(Model model){
         grupoService.zerarGrupos();
-        model.addAttribute("grupos", grupoService.buscarGrupos());
-        return "grupo/index";
+        return "redirect:/grupo/";
     }
 
 

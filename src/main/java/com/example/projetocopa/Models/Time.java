@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name="time")
-public class Time implements Serializable {
+public class Time {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

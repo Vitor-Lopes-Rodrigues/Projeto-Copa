@@ -10,10 +10,9 @@ import com.example.projetocopa.repositories.GrupoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Objects;
 import java.util.regex.Matcher;
@@ -39,29 +38,31 @@ public class TimeController {
 
 
     @RequestMapping(value="/adicionar/{grupoId}", method= RequestMethod.GET)
-    public String adicionar(Long grupoId,Model model){
+    public String adicionar(@PathVariable Long grupoId,Model model){
         Time time = new Time();
         time.setGrupo(grupoService.buscarGrupoPorId(grupoId));
         model.addAttribute("time", time);
         return "time/adicionar";
     }
 
-    @RequestMapping(value="/adicionar{grupoId}", method= RequestMethod.POST)
-    public String adicionar(Time time, Model model){
+    @RequestMapping(value="/adicionar/{grupoId}", method= RequestMethod.POST)
+    public String adicionar(@ModelAttribute Time time,
+                            @PathVariable Long grupoId,
+                            @RequestParam("fotoTime") MultipartFile fotoTime,
+                            Model model
+    ){
         try {
-            Long grupoId = Long.parseLong((String) Objects.requireNonNull(model.getAttribute("grupoId")));
+            //salvando imagem (o método retorna o nome da imagem)
+            time.setImagem(timeService.salvarImagem(fotoTime));
+            //inserindo dados no banco
             timeService.adicionar(time, grupoId);
             model.addAttribute("success", "Sucess!");
-            return "time/index";
+            return "redirect:/grupo/";
         } catch(Exception e) {
-            Pattern compile = Pattern.compile("message\":\"(.*)\",");
-            Matcher m = compile.matcher(e.getMessage());
-            m.find();
-            model.addAttribute("error", m.group(1));
+            model.addAttribute("error", e.getMessage());
             model.addAttribute("time", time);
-            return "time/adicionar";
-        } finally {
-            model.addAttribute("times", timeService.buscarTimes());
+            e.printStackTrace();
+            return "time/adicionar/"+grupoId;
         }
     }
 
