@@ -17,7 +17,7 @@ public class Time {
     @ManyToOne
     @JoinColumn(name = "grupo_id", nullable=false)
     private Grupo grupo;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany
     @JoinColumn(name = "time_id")
     private List<Jogador> jogadores;
 

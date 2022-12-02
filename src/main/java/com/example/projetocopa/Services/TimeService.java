@@ -47,7 +47,7 @@ public class TimeService {
 
     public void deletar(Long id){
         for (Jogador jogador : timeRepository.findFirstById(id).getJogadores()){
-            jogadorService.deletar(jogador.getId());
+            jogadorService.deletar(jogador);
         }
         timeRepository.deleteById(id);
     }

@@ -27,6 +27,7 @@ WebConfigSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/login").permitAll()
                 .antMatchers(HttpMethod.GET, "/teste").authenticated()
                 .antMatchers(HttpMethod.GET, "/grupo/**").authenticated()
+                .antMatchers(HttpMethod.GET, "/time/**").authenticated()
                 .antMatchers(HttpMethod.GET, "/admin").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET, "/usuario/**").hasRole("ADMIN")
                 .anyRequest().authenticated()

@@ -5,17 +5,22 @@
     <title>Lista de times</title>
 </head>
 <body>
-<img src="/img/times/${time.getNome()}">
-<p th:text="${time.getNome()}"> </p>
-<a  th:href="@{/time/{id}(id=${time.getId()})}">Adicionar jogador</a>
+
+<div class="dados-do-time">
+    <img th:src="'/img/times/'+${time.getImagem()}">
+    <p th:text="${time.getNome()}"> </p>
+    <a th:if="${time.getJogadores().size()< 11} " th:href="@{/jogador/adicionar/{timeId}(timeId=${time.getId()})}">Adicionar Jogador</a>
+
+</div>
 
 <div id="div-jogadores">
     <div class="jogador" th:each="jogador : ${time.getJogadores()}">
         <span>
-            <p th:text="${jogador.getNome()}"> </p>
-            <p th:text="${jogador.getIdade()()}"> anos</p>
-            <p th:text="${jogador.getPosicao()()}"> </p>
+            <span th:text="${jogador.getPosicao()}+' - '"></span>
+            <span th:text="${jogador.getNome()}+' - '"></span>
+            <span th:text="${jogador.getIdade()}+' anos |  '"></span>
 
+            <a th:href="@{/time/removerJogador/{id}(id=${jogador.getId()})}">Remover Jogador</a>
         </span>
 
     </div>

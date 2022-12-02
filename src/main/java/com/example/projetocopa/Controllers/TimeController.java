@@ -1,5 +1,6 @@
 package com.example.projetocopa.Controllers;
 
+import com.example.projetocopa.Models.Jogador;
 import com.example.projetocopa.Models.Time;
 import com.example.projetocopa.Models.Usuario;
 import com.example.projetocopa.Services.GrupoService;
@@ -30,7 +31,7 @@ public class TimeController {
     @Autowired
     GrupoService grupoService;
 
-    @RequestMapping(value="/time/{id}", method= RequestMethod.GET)
+    @RequestMapping(value="/{id}", method= RequestMethod.GET)
     public String index(Model model, @PathVariable Long id){
         model.addAttribute("time", timeService.buscarPorId(id));
         return "time/index";
@@ -67,11 +68,11 @@ public class TimeController {
     }
 
     @RequestMapping(value="/removerJogador/{id}", method= RequestMethod.GET)
-    public String remover(@PathVariable Long id, Model model, Long timeId){
-        jogadorService.deletar(id);
+    public String remover(@PathVariable Long id, Model model){
+        Jogador jogador = jogadorService.buscarJogador(id);
+        jogadorService.deletar(jogador);
         model.addAttribute("success", "Success!");
-        model.addAttribute("jogadores", timeService.buscarPorId(timeId).getJogadores());
-        return "time/index";
+        return "redirect:/time/"+jogador.getTime().getId();
     }
 
 }

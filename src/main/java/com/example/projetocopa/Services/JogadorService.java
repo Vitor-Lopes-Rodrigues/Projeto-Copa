@@ -20,6 +20,10 @@ public class JogadorService {
     @Autowired
     TimeRepository timeRepository;
 
+    public Jogador buscarJogador(Long id){
+        return jogadorRepository.findFirstById(id);
+    }
+
     public List<Jogador> buscarJogadoresPorTime(Long timeId){
         return timeRepository.findFirstById(timeId).getJogadores();
     }
@@ -34,5 +38,8 @@ public class JogadorService {
 
     public void deletar(Long id){
         jogadorRepository.deleteById(id);
+    }
+    public void deletar(Jogador jogador){
+        jogadorRepository.delete(jogador);
     }
 }
