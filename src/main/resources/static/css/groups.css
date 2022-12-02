@@ -164,13 +164,19 @@ footer {
 div .grupo{
     display: inline-block;
     vertical-align: top;
-    padding: 3.6rem;
     width: 23%;
     margin-left: 1.6%;
     margin-bottom: 1.2rem;
     background-color: white;
 }
+
+div .grupo hr{
+    margin: 4px 0;
+}
+
 #grupoisolado{
+    float: top;
+    display: inline-block;
 }
 
 .container_button{
@@ -248,6 +254,27 @@ div .grupo{
     height: 3vw;
     background-image: linear-gradient(to left, red,#800055 );
     font-size: 1vw;
+}
+
+.dados-time{
+    width: 100%;
+    text-align: left;
+    text-decoration: none;
+    border: 1px solid rgb(171, 171, 171);
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.dados-time, .dados-time img, .dados-time span{
+    display: inline-block;
+}
+
+.dados-time img{
+    width: 30%;
+}
+
+.dados-time a span{
+    text-align: center;
 }
 /*
 

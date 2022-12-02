@@ -6,23 +6,24 @@
     <link href="/css/adicionarTime.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <section>
-        <form class="form">
-            <div class="card">
-                <div class="card-top">
-                    <img class="imagem"  src="https://cdn.resfu.com/media/img_news/grupos-da-copa-do-mundo-do-catar-2022--besoccer.png?size=1000x&lossy=1&ext=jpeg" alt="">
-                    <h2 class="title">Adicionar Time</h2>
-                </div>
-                <div class="container">
-                    <span th:if="${error}" ><p th:text="${error}"></p></span>
-                    <form th:object="${time}" method="post" enctype="multipart/form-data">
-                        <label>Nome:</label> <input type="text" th:field="*{nome}" /></p>
-                        <label id="label_arquivo" for="input_image"> Fazer upload de imagem para o time 📂</label>
-                        <p><input id="input_image" type="file" name="fotoTime" accept="image/png, image/jpeg" hidden /></p>
-                        <p><input  id="button_time" type="submit" value="Adicionar    " /></p>
-                    </form>
-                </div>
-            </div>
-    </section>
+<section>
+    <div class="card">
+        <div class="card-top">
+            <img class="imagem"
+                 src="https://cdn.resfu.com/media/img_news/grupos-da-copa-do-mundo-do-catar-2022--besoccer.png?size=1000x&lossy=1&ext=jpeg"
+                 alt="">
+            <h2 class="title">Adicionar Time</h2>
+        </div>
+        <div class="container">
+            <span th:if="${error}"><p th:text="${error}"></p></span>
+            <form th:object="${time}" method="post" enctype="multipart/form-data">
+                <label>Nome:</label> <input type="text" th:field="*{nome}"/></p>
+                <label id="label_arquivo" for="input_image"> Fazer upload de imagem para o time 📂</label>
+                <p><input id="input_image" type="file" name="fotoTime" accept="image/png, image/jpeg" hidden/></p>
+                <p><input id="button_time" type="submit" value="Adicionar    "/></p>
+            </form>
+        </div>
+    </div>
+</section>
 </body>
 </html>

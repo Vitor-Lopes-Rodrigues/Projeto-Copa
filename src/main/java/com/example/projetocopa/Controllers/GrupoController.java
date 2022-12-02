@@ -43,6 +43,6 @@ public class GrupoController {
         timeService.deletar(id);
         model.addAttribute("success", "Success!");
         model.addAttribute("grupos", grupoService.buscarGrupos());
-        return "grupo/index";
+        return "redirect:/grupo/";
     }
 }

@@ -21,7 +21,7 @@
     <div class="container_button">
         <div class="botoes">
             <a th:if="${grupos.size()}" th:href="@{/grupo/zerar}" type="button" value="Click me" onclick="" id="zerar">Zerar</a>
-            <a th:href="@{/grupo/gerar}" type="button" value="Click me" onclick="" id="gerarTime">Gerar Grupos</a>
+            <a th:if="!${grupos.size()}" th:href="@{/grupo/gerar}" type="button" value="Click me" onclick="" id="gerarTime">Gerar Grupos</a>
             <!-- <button type="button"  value="Click me" onclick id="cadastrarTime">Cadastrar Times</button> -->
             <!-- <button type="button"  value="Click me" onclick id="cadastrarJogador">Cadastrar Jogadores</button> -->
         </div>
@@ -33,11 +33,15 @@
         <div class="grupo" th:each="grupo : ${grupos}">
             <p id="grupoisolado" th:text="${grupo.getNome()}"></p>
             <span  th:if="${grupo.getTimes() != null} " t>
-                        <a class="adicionar" th:if="${grupo.getTimes().size()< 4} " th:href="@{/time/adicionar/{grupoId}(grupoId=${grupo.getId()})}" >Adicionar time</a>
+                <a class="adicionar" th:if="${grupo.getTimes().size()< 4} " th:href="@{/time/adicionar/{grupoId}(grupoId=${grupo.getId()})}" >Adicionar time</a>
             </span>
+            <hr>
             <div>
                 <div th:each="time: ${grupo.getTimes()}">
-                    <p th:text="${time.getNome()}"></p>
+                    <a class="dados-time" th:href="@{/time/{timeId}(timeId=${time.getId()})}">
+                        <img th:src="'/img/times/'+${time.getImagem()}">
+                        <span th:text="${time.getNome()}" ></span>
+                        <a class="link-remover" th:href="@{/grupo/removerTime/{timeId}(timeId=${time.getId()})}">Remover</a>
                 </div>
             </div>
         </div>
