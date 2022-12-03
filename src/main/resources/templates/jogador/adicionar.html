@@ -3,25 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Adicionar jogadores</title>
+    <link href="/css/adicionarJogador.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <section>
-        <div>
+
+        <div class="card">
             <h2>Adicionar Jogador</h2>
-            <span th:if="${error}" ><p th:text="${error}"></p></span>
-            <form th:object="${jogador}" method="post" enctype="multipart/form-data">
-                <p>Nome: <input type="text" th:field="*{nome}" /></p>
-                <p>Idade: <input type="number" th:field="*{idade}" /></p>
-                <p>Posicao:
-                    <select th:field="*{posicao}" >
-                        <option th:each="posicao : ${posicoes}"
-                                th:text="${posicao}"
-                                th:value="${posicao}">
-                        </option>
-                    </select>
-                </p>
-                <p><input type="submit" value="Adicionar    " /></p>
-            </form>
+            <img class="imagem"
+                 src="https://images.rr.sapo.pt/futebol_geral_liga_bola_relvado_foto_liga_portugal938958acdefaultlarge_1024.jpg"
+                 alt="">
+                <div class="container">
+                    <span th:if="${error}" ><p th:text="${error}"></p></span>
+                    <form th:object="${jogador}" method="post" enctype="multipart/form-data">
+                        <p>Nome: <input id="input_nome" type="text" th:field="*{nome}" /></p>
+                        <p>Idade: <input id="input_idade" type="number" th:field="*{idade}" /></p>
+                        <p>Posicao:
+                            <select th:field="*{posicao}" >
+                                <option th:each="posicao : ${posicoes}"
+                                        th:text="${posicao}"
+                                        th:value="${posicao}">
+                                </option>
+                            </select>
+                        </p>
+                        <p><input id="button_jogador" type="submit" value="Adicionar" /></p>
+                    </form>
+                </div>
         </div>
     </section>
 </body>

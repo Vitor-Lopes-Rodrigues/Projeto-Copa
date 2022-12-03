@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de times</title>
+    <link href="/css/indexTime.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-<div class="dados-do-time">
-    <img th:src="'/img/times/'+${time.getImagem()}">
-    <p th:text="${time.getNome()}"> </p>
-    <a th:if="${time.getJogadores().size()< 11} " th:href="@{/jogador/adicionar/{timeId}(timeId=${time.getId()})}">Adicionar Jogador</a>
+<div class="container">
+    <div class="dados-do-time">
+        <img id="imagem" th:src="'/img/times/'+${time.getImagem()}">
+        <p th:text="${time.getNome()}"> </p>
+        <a th:if="${time.getJogadores().size()< 11} " th:href="@{/jogador/adicionar/{timeId}(timeId=${time.getId()})}">Adicionar Jogador</a>
 
-</div>
+    </div>
 
-<div id="div-jogadores">
-    <div class="jogador" th:each="jogador : ${time.getJogadores()}">
-        <span>
-            <span th:text="${jogador.getPosicao()}+' - '"></span>
-            <span th:text="${jogador.getNome()}+' - '"></span>
-            <span th:text="${jogador.getIdade()}+' anos |  '"></span>
+    <div id="div-jogadores">
+        <div class="jogador" th:each="jogador : ${time.getJogadores()}">
+            <span>
+                <span th:text="${jogador.getPosicao()}+' - '"></span>
+                <span th:text="${jogador.getNome()}+' - '"></span>
+                <span th:text="${jogador.getIdade()}+' anos |  '"></span>
 
-            <a th:href="@{/time/removerJogador/{id}(id=${jogador.getId()})}">Remover Jogador</a>
-        </span>
+                <a th:href="@{/time/removerJogador/{id}(id=${jogador.getId()})}">Remover Jogador</a>
+            </span>
 
+        </div>
     </div>
 </div>
 </body>
