@@ -114,3 +114,7 @@ body{
     color: black;
     font-weight: bold;
 }
+
+.card-group{
+    margin-top: 3%;
+}

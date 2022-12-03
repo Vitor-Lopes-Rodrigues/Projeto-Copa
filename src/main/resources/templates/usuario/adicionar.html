@@ -7,7 +7,7 @@
     <title>Cadastro</title>
 </head>
 <body>
-<form class="form" th:action="@{/login}" method="post">
+<form class="form" th:object="${usuario}" method="post">
     <div class="card">
         <div class="card-top">
             <img id="imagemcopa" class="imagem" src="https://s2.glbimg.com/EIhBsr1HfP0Jhrjr3Pevt_OTmYU=/0x0:1600x900/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2022/B/6/B3nXAkQMiEqwvlr77hlg/whatsapp-image-2022-04-01-at-13.35.35.jpeg" alt="">
@@ -16,15 +16,19 @@
         </div>
         <div class="card-group">
             <label>Usuário</label>
-            <input type=type="text" name="username" id="username" alt="Coloque o usuário"/>
+            <input type="text" th:field="*{login}" alt="Coloque o usuário"/>
         </div>
         <div class="card-group">
             <label>Senha</label>
-            <input type=type="text" name="password" id="password"  alt="Coloque a senha"/>
+            <input type="text" th:field="*{senha}" alt="Coloque a senha"/>
         </div>
 
-        <div class="checkbox">
-            <input type="checkbox"><span class ="span">Admin</span>
+        <div class="card-group">
+            Selecione o tipo de usuário:
+            <select name="admin"  >
+                <option value="false">Comum</option>
+                <option value="true">Admin</option>
+            </select>
         </div>
         <br>
         <div class="card-group">

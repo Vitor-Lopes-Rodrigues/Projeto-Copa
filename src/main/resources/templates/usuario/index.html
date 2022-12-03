@@ -3,8 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Listagem de usuários</title>
+    <link href="/css/usuarios.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
+<section>
+    <div class="card">
+        <img src="/img/user.png">
+        <h2>Lista de Usuários
+            <a class="adicionar" th:href="@{/usuario/adicionar}" >/ Adicionar Usuário</a>
+        </h2>
+        <div class="container">
+            <span th:if="${error}" ><p th:text="${error}"></p></span>
+
+            <table id="usuarios">
+                <tr>
+                    <th class="primeira">Login</th>
+                    <th class="segunda">Admin</th>
+                    <th>Remover</th>
+                </tr>
+
+                <tr  class="usuario" th:each="usuario : ${usuarios}">
+                    <td  class="primeira" th:text="${usuario.getLogin()}"></td>
+                    <td class="segunda" th:if="${usuario.admin()}" > Sim </td>
+                    <td class="segunda" th:if="!${usuario.admin()}" > Não </td>
+
+                    <td th:if="!${usuario.admin()}" title="Remover">
+                        <a class="remover" th:href="@{/usuario/remover/{login}(login=${usuario.getLogin()})}" >X</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>
 
 </body>
 </html>

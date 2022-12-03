@@ -23,9 +23,9 @@ public class UsuarioService {
         return (List<Usuario>) usuarioRepository.findAll();
     }
 
-    public void adicionar(Usuario usuario, String admin){
+    public void adicionar(Usuario usuario, boolean admin){
         List<Role> roles = new ArrayList<>();
-        if(admin.equals("sim")){
+        if(admin){
             roles.add(roleRepository.findByNomeRole("ROLE_ADMIN"));
             usuario.setRoles(roles);
         }else{
@@ -33,22 +33,12 @@ public class UsuarioService {
             usuario.setRoles(roles);
         }
         usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
-        System.out.printf(usuario.getRoles().toString());
         usuarioRepository.save(usuario);
     }
 
     public void deletar(String login){
         Usuario usuario = usuarioRepository.findByLogin(login);
-        boolean usuarioAdmin = false;
-        List<Role> roles = usuario.getRoles();
-
-        for(Role role : roles){
-            if (role.getNomeRole().equals("ROLE_ADMIN")) {
-                usuarioAdmin = true;
-                break;
-            }
-        }
-
+        boolean usuarioAdmin = usuario.admin();
         if (!usuarioAdmin)
             usuarioRepository.deleteById(login);
     }

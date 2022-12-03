@@ -91,4 +91,13 @@ public class Usuario implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public boolean admin(){
+        for(Role role : this.roles){
+            if (role.getNomeRole().equals("ROLE_ADMIN")) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

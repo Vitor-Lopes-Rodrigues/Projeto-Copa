@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 5px;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+body {
+    width: 100%;
+    background: rgb(157,12,53);
+    background: radial-gradient(circle, rgba(157,12,53,1) 0%, rgba(69,1,24,1) 100%);
+}
+#nome_time{
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+}
+.card-top{
+    text-align: center;
+}
+.container > label{
+    width: 100%;
+    color:#000000;
+}
+.container > input{
+    border-radius: 10px;
+    outline: 0;
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+}
+#label_arquivo{
+    width: 45px;
+    color: white;
+    background: rgb(157,12,53);
+    padding: 5px;
+}
+img {
+    border-radius: 10px;
+    width: 25vw;
+}
+.title{
+    color: black;
+    font-weight: bold;
+}
+
+.card{
+    box-shadow: 1px 1px 5px #cecece;
+    background-color: ghostwhite;
+    border-radius: 20px;
+    padding: 38px;
+    display: grid;
+    place-items: center;
+}
+
+table {
+    text-align: center;
+}
+
+.primeira, .segunda{
+    border-right: 2px solid black;
+}
+
+h2{
+    color: #800055;
+}
+
+h2 a{
+    text-decoration: none;
+    color: #800055;
+}
+h2 a:hover{
+    text-decoration: underline;
+}
+
+.remover{
+    color: #b40000;
+    text-decoration: none;
+    font-size: 150%;
+}
