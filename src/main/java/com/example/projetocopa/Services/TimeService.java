@@ -55,6 +55,8 @@ public class TimeService {
     public String salvarImagem(MultipartFile multipartFile) throws IOException {
 
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+
+        //Inserindo imagem em pasta comum static
         String path = "./src/main/resources/static/img/times";
         Path uploadPath = Paths.get(path);
         if (!Files.exists(uploadPath)) {
@@ -65,8 +67,23 @@ public class TimeService {
             Path filePath = uploadPath.resolve(fileName);
             Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException ioe) {
-            throw new IOException("Could not save image file: " + fileName, ioe);
+            throw new IOException("Erro ao salvar imagem: " + fileName, ioe);
         }
+
+        //Inserindo imagem em pasta targer para aparecer em tempo de execução
+        path = "./target/classes/static/img/times";
+        uploadPath = Paths.get(path);
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+
+        try (InputStream inputStream = multipartFile.getInputStream()) {
+            Path filePath = uploadPath.resolve(fileName);
+            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException ioe) {
+            throw new IOException("Erro ao salvar imagem: " + fileName, ioe);
+        }
+
         return fileName;
     }
 }
