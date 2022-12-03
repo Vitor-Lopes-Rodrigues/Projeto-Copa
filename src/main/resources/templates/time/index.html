@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de times</title>
+    <link rel="icon" href="/img/favicon.png" />
     <link href="/css/indexTime.css" rel="stylesheet" type="text/css">
-    <link href="/css/global.css">
+    <link href="/css/global.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<a class="nav_link" href="/grupo/">Grupo</a>
+<a id="link-nav" class="nav_link" href="/grupo/"><img id="img-nav" src="/img/Home.png"></a>
 <div class="container">
     <div class="dados-do-time">
         <img id="imagem" th:src="'/img/times/'+${time.getImagem()}">

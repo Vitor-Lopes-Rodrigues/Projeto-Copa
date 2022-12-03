@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/")
 public class HomeController {
 
-    @RequestMapping(value="/teste", method= RequestMethod.GET)
-    public String teste(){
-        return "home/teste";
-    }
 
     @RequestMapping(value="/login", method= RequestMethod.GET)
     public String login(){ return "home/login";
@@ -22,8 +18,4 @@ public class HomeController {
         return "redirect:/grupo/";
     }
 
-    @RequestMapping(value="/admin", method= RequestMethod.GET)
-    public String admin(){
-        return "admin";
-    }
 }

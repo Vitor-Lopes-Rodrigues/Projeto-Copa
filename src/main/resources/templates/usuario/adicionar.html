@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro</title>
+    <link rel="icon" href="/img/favicon.png" />
     <link href="/css/usuarioAdicionar.css" rel="stylesheet" type="text/css">
-    <link href="/css/global.css">
+    <link href="/css/global.css" rel="stylesheet" type="text/css">
     <title>Cadastro</title>
 </head>
 <body>
-<a class="nav_link" href="/grupo/">Grupo</a>
+<a id="link-nav" class="nav_link" href="/grupo/"><img id="img-nav" src="/img/Home.png"></a>
 <form class="form" th:object="${usuario}" method="post">
     <div class="card">
         <div class="card-top">
